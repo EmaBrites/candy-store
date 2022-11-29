@@ -15,7 +15,8 @@ export class CandyListComponent {
 			price: 1.00,
 			description: 'A chocolate bar with peanuts',
 			stock: 10,
-			image: './assets/img/candys/snickers.webp'
+			image: './assets/img/candys/snickers.webp',
+			quantity: 0,
 		},
 		{	
 			name: 'Twix',
@@ -23,7 +24,8 @@ export class CandyListComponent {
 			price: 1.00,
 			description: 'A chocolate bar with caramel',
 			stock: 10,
-			image: './assets/img/candys/twix.jpeg'
+			image: './assets/img/candys/twix.jpeg',
+			quantity: 0,
 		},
 		{
 			name: 'M&Ms',
@@ -31,7 +33,8 @@ export class CandyListComponent {
 			price: 1.00,
 			description: 'A chocolate bar with M&Ms',
 			stock: 10,
-			image: './assets/img/candys/M&Ms.jpg'
+			image: './assets/img/candys/M&Ms.jpg',
+			quantity: 0,
 		},
 		{
 			name: 'Skittles',
@@ -39,7 +42,8 @@ export class CandyListComponent {
 			price: 1.00,
 			description: 'A bag of Skittles',
 			stock: 10,
-			image: './assets/img/candys/Skittles.webp'
+			image: './assets/img/candys/Skittles.webp',
+			quantity: 0,
 		},
 		{
 			name: 'Billiken',
@@ -47,7 +51,18 @@ export class CandyListComponent {
 			price: 1.00,
 			description: 'A bag of Billiken',
 			stock: 10,
-			image: './assets/img/candys/Billiken.jpg'
+			image: './assets/img/candys/Billiken.jpg',
+			quantity: 0,
 		},
 	];
+	upQuantity(candy: Candy) {
+		if (candy.stock > 0 && candy.quantity < candy.stock) {
+			candy.quantity++;
+		}
+	}
+	downQuantity(candy: Candy) {
+		if (candy.quantity > 0) {
+			candy.quantity--;
+		}
+	}
 }

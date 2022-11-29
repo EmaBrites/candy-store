@@ -7,6 +7,7 @@
       <td>Description</td>
       <td>Tipo</td>
       <td>Precio</td>
+      <td>Cantidad</td>
     </tr>
   </thead>
   <tbody>
@@ -15,7 +16,12 @@
       <td>{{candy.name}}</td>
       <td>{{candy.description}}</td>
       <td>{{candy.type}}</td>
-      <td>{{candy.price}}</td>
+      <td>{{candy.price | currency}}</td>
+      <td>
+        <button class="btn btn-primary btn-sm" (click)="downQuantity(candy)">-</button>
+        <input type="text" [(ngModel)]="candy.quantity">
+        <button class="btn btn-primary btn-sm" (click)="upQuantity(candy)">+</button>
+      </td>
     </tr>
   </tbody>
 </table>

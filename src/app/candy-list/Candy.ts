@@ -5,4 +5,5 @@ export interface Candy {
     description: string;
     stock: number;
     image: string;
+    quantity: number;
 }
