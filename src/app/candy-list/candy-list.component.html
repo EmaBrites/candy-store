@@ -1,0 +1,21 @@
+<p>candy-list works!</p>
+<table class="table col-8">
+  <thead>
+    <tr>
+      <td></td>
+      <td>Nombre</td>
+      <td>Description</td>
+      <td>Tipo</td>
+      <td>Precio</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let candy of candys">
+      <td><img src={{candy.image}} alt=""></td>
+      <td>{{candy.name}}</td>
+      <td>{{candy.description}}</td>
+      <td>{{candy.type}}</td>
+      <td>{{candy.price}}</td>
+    </tr>
+  </tbody>
+</table>
