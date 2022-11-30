@@ -6,11 +6,19 @@ import { AppComponent } from './app.component';
 import { CandyListComponent } from './candy-list/candy-list.component';
 
 import { FormsModule } from "@angular/forms";
+import { CandyStoreComponent } from './candy-store/candy-store.component';
+import { CandyCartComponent } from './candy-cart/candy-cart.component';
+import { CandyAboutComponent } from './candy-about/candy-about.component';
+import { CandyContactComponent } from './candy-contact/candy-contact.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CandyListComponent
+    CandyListComponent,
+    CandyStoreComponent,
+    CandyCartComponent,
+    CandyAboutComponent,
+    CandyContactComponent
   ],
   imports: [
     BrowserModule,
