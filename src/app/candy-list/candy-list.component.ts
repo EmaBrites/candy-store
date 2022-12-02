@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CandyCartService } from '../candy-cart.service';
 import { Candy } from './Candy';
 
 @Component({
@@ -55,6 +56,9 @@ export class CandyListComponent {
 			quantity: 0,
 		},
 	];
+
+	constructor(private cart: CandyCartService) { }
+
 	upQuantity(candy: Candy) {
 		if (candy.stock > 0 && candy.quantity < candy.stock) {
 			candy.quantity++;
@@ -64,5 +68,10 @@ export class CandyListComponent {
 		if (candy.quantity > 0) {
 			candy.quantity--;
 		}
+	}
+	addToCart(candy: Candy) {
+		this.cart.addToCart(candy);
+		candy.stock -= candy.quantity;
+		candy.quantity = 0;
 	}
 }
