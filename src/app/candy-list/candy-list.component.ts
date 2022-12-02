@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CandyCartService } from '../candy-cart.service';
+import { CandyDataService } from '../candy-data.service';
 import { Candy } from './Candy';
 
 @Component({
@@ -11,15 +12,15 @@ export class CandyListComponent {
 
 	candys: Candy[] = [
 		{
-			name: 'Snickers',
-			type: 'Chocolate',
-			price: 1.00,
-			description: 'A chocolate bar with peanuts',
-			stock: 10,
-			image: './assets/img/candys/snickers.webp',
+			"name": "Snickers",
+			"type": "Chocolate",
+			"price": 1.00,
+			"description": "A chocolate bar with peanuts",
+			"stock": 10,
+			"image": "./assets/img/candys/snickers.webp",
 			quantity: 0,
 		},
-		{	
+		{
 			name: 'Twix',
 			type: 'Chocolate',
 			price: 1.00,
@@ -57,7 +58,13 @@ export class CandyListComponent {
 		},
 	];
 
-	constructor(private cart: CandyCartService) { }
+	constructor(private cart: CandyCartService, private candyDataService: CandyDataService) { }
+
+	ngOnInit(): void {
+		this.candyDataService.getCandyData().subscribe((data: Candy[]) => {
+			this.candys = data;
+		});
+	}
 
 	upQuantity(candy: Candy) {
 		if (candy.stock > 0 && candy.quantity < candy.stock) {
