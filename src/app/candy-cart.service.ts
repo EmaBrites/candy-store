@@ -22,7 +22,6 @@ export class CandyCartService {
     } else {
       item.quantity += candy.quantity;
     }
-    console.log(this.shopList);
     this.shopList.next(this._shopList);
     this.calculateTotal();
   }

@@ -12,6 +12,7 @@ import { CandyCartComponent } from './candy-cart/candy-cart.component';
 import { CandyAboutComponent } from './candy-about/candy-about.component';
 import { CandyContactComponent } from './candy-contact/candy-contact.component';
 import { InputIntegerComponent } from './input-integer/input-integer.component';
+import { CandyHomeComponent } from './candy-home/candy-home.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { InputIntegerComponent } from './input-integer/input-integer.component';
     CandyCartComponent,
     CandyAboutComponent,
     CandyContactComponent,
-    InputIntegerComponent
+    InputIntegerComponent,
+    CandyHomeComponent
   ],
   imports: [
     BrowserModule,

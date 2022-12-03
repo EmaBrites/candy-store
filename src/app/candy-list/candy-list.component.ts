@@ -22,8 +22,6 @@ export class CandyListComponent {
 		});
 		// me suscribo al carrito para actualizar el stock pero falta actualizar el stock de los productos que se quitan del carrito
 		this.cart.getShopList().subscribe((data: Candy[]) => {
-			console.log(`data: ${data}`);
-
 		});
 	}
 
