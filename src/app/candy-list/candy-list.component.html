@@ -1,29 +1,18 @@
-<table class="table">
-  <thead>
-    <tr>
-      <td></td>
-      <td>Nombre</td>
-      <td>Description</td>
-      <td>Tipo</td>
-      <td>Precio</td>
-      <td>Cantidad</td>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let candy of candys">
-      <td><img src={{candy.image}} alt=""></td>
-      <td>{{candy.name}}</td>
-      <td>{{candy.description}}</td>
-      <td>{{candy.type}}</td>
-      <td>{{candy.price | currency}}</td>
-      <td>
-        <button class="btn btn-outline-primary btn-sm" (click)="downQuantity(candy)">-</button>
-        <input type="text" [(ngModel)]="candy.quantity">
-        <button class="btn btn-outline-primary btn-sm" (click)="upQuantity(candy)">+</button>
-      </td>
-      <td>
-        <button class="btn btn-primary btn-sm" (click)="addToCart(candy)">Agregar</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+
+<div class="container row align-items-center justify-content-evenly" *ngFor="let candy of candys">
+  <div class="col-auto">
+    <img src={{candy.image}} alt="">
+  </div>
+  <div class="col-auto">
+    <h2>{{candy.name}}</h2>
+    <p>{{candy.type}}</p>
+    <p>{{candy.description}}</p>
+    <h3>{{candy.price | currency}}</h3>
+  </div>
+  <div class="col-auto col-custom">
+    <app-input-integer [(quantity)]="candy.quantity" [max]="candy.stock" (quantityChange)="candy.quantity = $event"></app-input-integer>
+    <button class="btn btn-primary btn-sm" (click)="addToCart(candy)">Agregar</button>
+    <p>Cantidad: {{candy.quantity}}</p>
+    <p>Stock: {{candy.stock}}</p>
+  </div>
+</div>

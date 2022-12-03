@@ -1,7 +1,19 @@
 <h1>Carrito</h1>
-<ul>
-    <li *ngFor="let candy of cartList$ | async">
-        <h2>{{candy.name}}</h2>
-        <p>Precio:{{candy.price}}, Cantidad:{{candy.quantity}}</p>
-    </li>
-</ul>
+<section>
+    <article class="row justify-content-center" *ngFor="let candy of cartList$ | async">
+        <img [src]="candy.image" alt="" srcset="">
+        <div class="col">
+            <div class="row-custom">
+                <h3>{{candy.name}}</h3>
+                <button class="btn btn-danger btn-sm" (click)="removeFromCart(candy)">Quitar</button>
+            </div>
+            <div class="row-custom">
+                <app-input-integer [(quantity)]="candy.quantity" [max]="candy.stock" (quantityChange)="updateCart($event,candy)"></app-input-integer>
+                <h4>{{candy.price * candy.quantity | currency}}</h4>
+            </div>
+        </div>
+    </article>
+    <article>
+        <h3>Total: {{total$ | async | currency}}</h3>
+    </article>
+</section>
